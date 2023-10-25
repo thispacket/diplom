@@ -25,4 +25,8 @@
     *:hover {
         transition: all .2s linear;
     }
+
+    #app {
+        display: flex;
+    }
 </style>
