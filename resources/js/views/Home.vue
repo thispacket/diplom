@@ -1,6 +1,7 @@
 <template>
     <div class="home-page">
         <v-header/>
+        <menu-list/>
     </div>
 </template>
 
