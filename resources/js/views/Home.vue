@@ -1,6 +1,6 @@
 <template>
     <div class="home-page">
-        <title-text text="Jaegar Resto"/>
+        <v-header/>
     </div>
 </template>
 
@@ -9,6 +9,11 @@
 
 <style lang="scss">
     .home-page {
-        padding: 32px;
+        padding: 28px;
+        width: 100%;
+
+        .sub-title {
+            margin-top: 4px;
+        }
     }
 </style>
