@@ -5,7 +5,8 @@
 <script setup>
     defineProps({
         text: {
-            type: String
+            type: String,
+            default: 'title'
         }
     })
 </script>

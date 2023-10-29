@@ -1,6 +1,7 @@
 <template>
     <div class="menu-list">
         <category-navigation/>
+        <menu-inner/>
     </div>
 </template>
 

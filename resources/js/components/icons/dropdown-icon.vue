@@ -1,0 +1,21 @@
+<template>
+    <svg :width="size" :height="size" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 13.3333C9.81001 13.3333 9.62084 13.2692 9.46667 13.14L4.46667 8.97334C4.11334 8.67917 4.06501 8.15334 4.36001 7.80001C4.65417 7.44667 5.17917 7.39917 5.53334 7.69334L10.0092 11.4233L14.4775 7.82751C14.8358 7.53917 15.3608 7.59584 15.6492 7.95417C15.9375 8.31251 15.8808 8.83667 15.5225 9.12584L10.5225 13.1492C10.37 13.2717 10.185 13.3333 10 13.3333" fill="white"/>
+    </svg>
+</template>
+
+<script setup>
+defineProps({
+    color: {
+        type: String,
+        default: "#EA7C69"
+    },
+    size: {
+        type: String,
+        default: "24"
+    },
+})
+</script>
+
+<style lang="scss" scoped></style>
+

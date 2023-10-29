@@ -1,12 +1,15 @@
 <template>
     <div class="category-navigation">
         <div class="buttons">
-            <button class="category-navigation__button active">Hot dishes</button>
-            <button class="category-navigation__button">Hot dishes</button>
-            <button class="category-navigation__button">Hot dishes</button>
-            <button class="category-navigation__button">Hot dishes</button>
-            <button class="category-navigation__button">Hot dishes</button>
-            <button class="category-navigation__button">Hot dishes</button>
+            <div
+                class="category-navigation__button"
+                :class="active === category ? 'active' : ''"
+                v-for="category in categoryName"
+                :key="category"
+                @click="makeActive(category)"
+                >
+                {{ category }}
+            </div>
         </div>
 
         <div class="divider">
@@ -16,6 +19,20 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
+const categoryName = ref([
+    "Hot dishes",
+    "Cold Dishes",
+    "Soup",
+    "Grill",
+    "Appetizer",
+    "Dessert"
+])
+
+const active = ref("Hot dishes")
+
+const makeActive = name => active.value = name
 
 </script>
 
@@ -34,6 +51,7 @@
             font-size: 14px;
             font-weight: 600;
             font-family: "Barlow", sans-serif;
+
         }
 
         .active {
@@ -43,7 +61,7 @@
         .active::after {
             content: "";
             height: 3px;
-            width: 36px;
+            width: 32px;
             background: var(--primary-color);
             display: block;
             margin-top: 13px;
