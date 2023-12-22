@@ -6,100 +6,20 @@
         </div>
 
         <div class="menu-inner__content">
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
-            <div class="menu-inner__item">
-                <img src="" alt="">
-                <div class="menu-item__text">
-                    <p class="item-name">Spicy seasoned seafood noodles</p>
-                    <p class="item-price">$ 2.29</p>
-                    <p class="item-count">20 Bowls available</p>
-                </div>
-            </div>
+            <menu-item
+                v-for="i in 10"
+                :key="i"
+                name="Spicy seasoned seafood noodles"
+                price="5.99"
+                count="5"
+                :path="path"
+            />
         </div>
     </div>
 </template>
 
 <script setup>
-
+    const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
 </script>
 
 <style lang="scss" >
@@ -119,36 +39,33 @@
         &__content {
             display: flex;
             flex-wrap: wrap;
-            column-gap: 28px;
+            column-gap: 24px;
         }
 
         &__item {
             background-color: var(--base-dark-one);
+            width: 18%;
             border-radius: 16px;
             padding: 24px;
-            gap: 28px;
-            margin-top: calc(58px + 24px);
+            margin-top: calc(58px * 2);
 
 
             img {
-                width: 132px;
-                height: 132px;
+                width: 70%;
                 border-radius: 50%;
                 background-color: white;
                 display: block;
-                margin: -50% auto 0;
+                margin: -40% auto 0;
             }
 
             .menu-item__text {
-                margin-top: 16px;
+                margin-top: 24px;
             }
 
             p {
-                color: #ABBBC2;
                 text-align: center;
-                font-size: 14px;
+                font-size: 20px;
                 font-weight: 500;
-                width: 144px;
                 font-family: "Barlow", sans-serif;
                 color: #ABBBC2;
             }
@@ -158,7 +75,7 @@
             }
 
             .item-price, .item-count {
-                margin-top: 8px;
+                margin-top: 24px;
             }
         }
 

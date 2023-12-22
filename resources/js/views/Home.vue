@@ -12,6 +12,7 @@
     .home-page {
         padding: 28px;
         width: 100%;
+        margin-left: calc(104px);
 
         .sub-title {
             margin-top: 4px;

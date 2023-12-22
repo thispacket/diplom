@@ -56,18 +56,25 @@ let colorChange = computed(() => {
     }
 
     .navigation-sidebar {
+
+
         background: var(--base-dark-one);
         width: 104px;
         height: 100vh;
         padding: 24px 0;
         border-radius: 0 16px 16px 0;
-        position: relative;
+        z-index: 1;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
 
 
         &__inner {
             display: flex;
             flex-direction: column;
             align-items: center;
+
 
             .logo {
                 background: rgba($color: #EB966A, $alpha: .26);
