@@ -15,7 +15,7 @@
     .sub-title {
         font-size: 16px;
         font-family: "Barlow", sans-serif;
-        font-weight: 400;
+        font-weight: 600;
         color: #E0E6E9;
     }
 </style>

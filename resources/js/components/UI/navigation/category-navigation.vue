@@ -72,12 +72,11 @@ const makeActive = name => active.value = name
         &__button:first-child {
             margin-left: 0;
         }
-
-        .divider {
-            width: 100%;
-            height: 1px;
-            background: #393C49;
-            margin-top: 14px;
-        }
+    }
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: #393C49;
+        margin-top: 14px;
     }
 </style>

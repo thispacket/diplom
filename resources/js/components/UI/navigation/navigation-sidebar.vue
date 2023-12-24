@@ -44,9 +44,9 @@
 import { computed, ref } from "vue";
 
 const color = ref('#fff')
-let colorChange = computed(() => {
-
-})
+// let colorChange = computed(() => {
+//
+// })
 
 </script>
 
@@ -56,15 +56,13 @@ let colorChange = computed(() => {
     }
 
     .navigation-sidebar {
-
-
         background: var(--base-dark-one);
-        width: 104px;
+        //width: 8%;
         height: 100vh;
-        padding: 24px 0;
+        padding: 24px;
         border-radius: 0 16px 16px 0;
         z-index: 1;
-        position: fixed;
+        position: sticky;
         left: 0;
         top: 0;
         bottom: 0;
@@ -74,7 +72,6 @@ let colorChange = computed(() => {
             display: flex;
             flex-direction: column;
             align-items: center;
-
 
             .logo {
                 background: rgba($color: #EB966A, $alpha: .26);
