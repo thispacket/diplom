@@ -1,14 +1,18 @@
 <script setup>
+    import { useWindowVisibility } from "../../helper/orderVisible.js";
+
     const menuItem = defineProps({
         path: String,
         name: String,
         price: String,
         count: String
     })
+
+    const { changeWindowsVisibility } = useWindowVisibility();
 </script>
 
 <template>
-    <div class="menu-inner__item">
+    <div class="menu-inner__item" @click="changeWindowsVisibility">
         <img :src="menuItem.path" alt="">
 
         <div class="menu-item__text">

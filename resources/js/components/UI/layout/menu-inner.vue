@@ -7,7 +7,7 @@
 
         <div class="menu-inner__content">
             <menu-item
-                v-for="i in 10"
+                v-for="i in 11"
                 :key="i"
                 name="Spicy seasoned seafood noodles"
                 price="5.99"
@@ -39,15 +39,18 @@
         &__content {
             display: flex;
             flex-wrap: wrap;
-            column-gap: 24px;
+            justify-content: space-between;
+            gap: 24px;
         }
+
 
         &__item {
             background-color: var(--base-dark-one);
-            width: 18%;
+            width: calc(340px - 24px);
             border-radius: 16px;
             padding: 24px;
             margin-top: calc(58px * 2);
+
 
 
             img {
@@ -65,7 +68,7 @@
             p {
                 text-align: center;
                 font-size: 20px;
-                font-weight: 500;
+                font-weight: 400;
                 font-family: "Barlow", sans-serif;
                 color: #ABBBC2;
             }
