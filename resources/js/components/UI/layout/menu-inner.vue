@@ -20,6 +20,7 @@
 
 <script setup>
     const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
+
 </script>
 
 <style lang="scss" >

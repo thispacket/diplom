@@ -4,8 +4,10 @@
     import TitleText from "../text/title-text.vue";
     import FormButton from "../form/form-button.vue";
     import PaymentItem from "../item/payment-item.vue";
+    import { useMenuItem } from "../../helper/menuItem.js";
 
     const { display } = useWindowVisibility();
+    const { menuItems } = useMenuItem();
 
     const textsButton = ref([
         "Dine In",
@@ -43,7 +45,11 @@
             <div class="divider"></div>
 
             <div class="payment-panel">
-                <payment-item v-for="i in 5" :key="i"/>
+                <payment-item
+                    v-for="(menuItem, index) in menuItems"
+                    :key="index"
+                    :payment-item="menuItem"
+                />
             </div>
 
             <div class="order-sidebar__total-price">

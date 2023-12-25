@@ -2,6 +2,10 @@
 
     import TrashIcon from "../../icons/trash-icon.vue";
 
+    defineProps({
+        paymentItem: Object
+    });
+
     const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
 </script>
 
@@ -12,8 +16,8 @@
                 <img :src="path" alt="pasta" class="payment-item__img">
 
                 <div class="payment-item__info">
-                    <p class="payment-item__name">Spicy seasoned seafood noodles</p>
-                    <p class="payment-item__price">$ 2.29</p>
+                    <p class="payment-item__name">{{ paymentItem.name }}</p>
+                    <p class="payment-item__price">$ {{ paymentItem.price }}</p>
                 </div>
             </div>
 

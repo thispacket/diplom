@@ -1,5 +1,6 @@
 <script setup>
     import { useWindowVisibility } from "../../helper/orderVisible.js";
+    import { useMenuItem } from "../../helper/menuItem.js";
 
     const menuItem = defineProps({
         path: String,
@@ -9,10 +10,16 @@
     })
 
     const { changeWindowsVisibility } = useWindowVisibility();
+    const { addToPayment } = useMenuItem();
+
+    const addDish = () => {
+        addToPayment(menuItem);
+        changeWindowsVisibility();
+    }
 </script>
 
 <template>
-    <div class="menu-inner__item" @click="changeWindowsVisibility">
+    <div class="menu-inner__item" @click="addDish">
         <img :src="menuItem.path" alt="">
 
         <div class="menu-item__text">
