@@ -1,6 +1,6 @@
 <script setup>
-    import { useWindowVisibility } from "../../helper/orderVisible.js";
-    import { useMenuItem } from "../../helper/menuItem.js";
+    import { useWindowVisibility } from "../../../helper/orderVisible.js";
+    import { useMenuItem } from "../../../helper/menuItem.js";
 
     const menuItem = defineProps({
         path: String,

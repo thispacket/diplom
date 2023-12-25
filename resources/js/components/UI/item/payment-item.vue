@@ -1,12 +1,22 @@
 <script setup>
 
     import TrashIcon from "../../icons/trash-icon.vue";
+    import { ref, watch } from "vue";
 
-    defineProps({
+    let props = defineProps({
         paymentItem: Object
     });
 
+    let count = ref(1);
+    const totalPrice = ref(props.paymentItem.price);
+
+    watch(count, () => {
+        totalPrice.value = count.value * props.paymentItem.price;
+        console.log(count.value);
+    });
+
     const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
+
 </script>
 
 <template>
@@ -22,10 +32,10 @@
             </div>
 
             <div class="payment-item__count">
-                <input min="1" max="10" type="number" value="1"/>
+                <input v-model="count" min="1" max="10" type="number"/>
             </div>
 
-            <div class="payment-item__total-price">$ 2.29</div>
+            <div class="payment-item__total-price">$ {{ (totalPrice.toFixed(2)) }}</div>
         </div>
 
         <div class="payment-item__note">

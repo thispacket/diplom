@@ -1,10 +1,10 @@
 <script setup>
-    import { useWindowVisibility } from "../../helper/orderVisible.js";
+    import { useWindowVisibility } from "../../../helper/orderVisible.js";
     import {ref} from "vue";
     import TitleText from "../text/title-text.vue";
     import FormButton from "../form/form-button.vue";
     import PaymentItem from "../item/payment-item.vue";
-    import { useMenuItem } from "../../helper/menuItem.js";
+    import { useMenuItem } from "../../../helper/menuItem.js";
 
     const { display } = useWindowVisibility();
     const { menuItems } = useMenuItem();
