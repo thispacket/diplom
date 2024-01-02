@@ -2,20 +2,19 @@
 
     import TrashIcon from "../../icons/trash-icon.vue";
     import { ref, watch } from "vue";
+    import {useMenuItem} from "../../../helper/menuPaymentItem.js";
 
     let props = defineProps({
-        paymentItem: Object
+        paymentItem: Object,
     });
+
+    const { removeFromPayment } = useMenuItem();
 
     let count = ref(1);
+    const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
     const totalPrice = ref(props.paymentItem.price);
 
-    watch(count, () => {
-        totalPrice.value = count.value * props.paymentItem.price;
-        console.log(count.value);
-    });
-
-    const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
+    watch(count, () =>  totalPrice.value = (count.value * props.paymentItem.price).toFixed(2));
 
 </script>
 
@@ -26,7 +25,7 @@
                 <img :src="path" alt="pasta" class="payment-item__img">
 
                 <div class="payment-item__info">
-                    <p class="payment-item__name">{{ paymentItem.name }}</p>
+                    <p class="payment-item__name">{{ paymentItem.title }}</p>
                     <p class="payment-item__price">$ {{ paymentItem.price }}</p>
                 </div>
             </div>
@@ -35,13 +34,16 @@
                 <input v-model="count" min="1" max="10" type="number"/>
             </div>
 
-            <div class="payment-item__total-price">$ {{ (totalPrice.toFixed(2)) }}</div>
+            <div class="payment-item__total-price">$ {{ totalPrice }}</div>
         </div>
 
         <div class="payment-item__note">
             <input placeholder="Order Note..." type="text" class="text-input">
 
-            <trash-icon size="52" class="payment-item__trash" />
+            <trash-icon
+                size="52"
+                class="payment-item__trash"
+                @click="removeFromPayment(paymentItem)" />
         </div>
 
     </div>
@@ -51,6 +53,11 @@
     .payment-item {
         width: 100%;
         margin-top: 28px;
+
+        &__total-price {
+            width: 70px;
+            text-align: end;
+        }
 
         .item {
             display: flex;

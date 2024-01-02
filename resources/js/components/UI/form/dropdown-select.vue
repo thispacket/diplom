@@ -4,12 +4,19 @@
         <div class="dropdown-select__text">
             Dine in
         </div>
+<!--        <div class="dropdown-select__text">-->
+<!--            Dine in-->
+<!--        </div>-->
 
+<!--        <div class="dropdown-select__text">-->
+<!--            Dine in-->
+<!--        </div>-->
     </div>
 </template>
 
 <script setup>
 
+import DropdownIcon from "../../icons/dropdown-icon.vue";
 </script>
 
 <style lang="scss">
@@ -29,5 +36,11 @@
             margin-left: 10px;
             font-size: 14px;
         }
+
+        select {
+            background:  #1F1D2B;
+        }
+
+
     }
 </style>

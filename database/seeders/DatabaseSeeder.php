@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\MenuItem;
+use App\Models\MenuItemCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -10,13 +12,18 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
+
+    private array $categories = ["Hot Dishes", "Cold Dishes", "Soup", "Grill", "Appetizer", "Dessert"];
+
+
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        foreach ($this->categories as $category) {
+            MenuItemCategory::factory()->create([
+                'name' => $category
+            ]);
+        }
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        MenuItem::factory(10)->create();
     }
 }

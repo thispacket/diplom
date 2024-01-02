@@ -7,19 +7,26 @@
 
         <div class="menu-inner__content">
             <menu-item
-                v-for="i in 11"
-                :key="i"
-                name="Spicy seasoned seafood noodles"
-                price="5.99"
-                count="5"
-                :path="path"
+                v-for="(menuItem, index) in menuItems"
+                :key="menuItem.id"
+                :menuItem="menuItem"
             />
         </div>
     </div>
 </template>
 
 <script setup>
-    const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
+    import DropdownSelect from "../form/dropdown-select.vue";
+    import MenuItem from "../item/menu-item.vue";
+    import TitleText from "../text/title-text.vue";
+    import {useMenuItems} from "../../../helper/api/useMenuItems.js";
+    import {onMounted} from "vue";
+
+    const { getMenuItems, menuItems } = useMenuItems();
+
+    onMounted(() => {
+       getMenuItems();
+    });
 
 </script>
 

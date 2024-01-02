@@ -4,10 +4,10 @@
     import TitleText from "../text/title-text.vue";
     import FormButton from "../form/form-button.vue";
     import PaymentItem from "../item/payment-item.vue";
-    import { useMenuItem } from "../../../helper/menuItem.js";
+    import { useMenuItem } from "../../../helper/menuPaymentItem.js";
 
     const { display } = useWindowVisibility();
-    const { menuItems } = useMenuItem();
+    const { menuPaymentItems } = useMenuItem();
 
     const textsButton = ref([
         "Dine In",
@@ -46,7 +46,7 @@
 
             <div class="payment-panel">
                 <payment-item
-                    v-for="(menuItem, index) in menuItems"
+                    v-for="(menuItem, index) in menuPaymentItems"
                     :key="index"
                     :payment-item="menuItem"
                 />
