@@ -1,14 +1,30 @@
+<script setup>
+import {onMounted, ref} from "vue";
+import {useMenuCategories} from "../../..//helper/api/useMenuCategories.js";
+
+const { menuCategories, getMenuCategories } = useMenuCategories();
+
+
+const active = ref("Hot Dishes");
+const makeActive = name => active.value = name
+
+onMounted(() => {
+    getMenuCategories();
+})
+
+</script>
+
 <template>
     <div class="category-navigation">
         <div class="buttons">
             <div
                 class="category-navigation__button"
-                :class="active === category ? 'active' : ''"
-                v-for="category in categoryName"
+                :class="active === category.name ? 'active' : ''"
+                v-for="category in menuCategories"
                 :key="category"
-                @click="makeActive(category)"
+                @click="makeActive(category.name)"
                 >
-                {{ category }}
+                {{ category.name }}
             </div>
         </div>
 
@@ -18,23 +34,6 @@
     </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
-const categoryName = ref([
-    "Hot dishes",
-    "Cold Dishes",
-    "Soup",
-    "Grill",
-    "Appetizer",
-    "Dessert"
-])
-
-const active = ref("Hot dishes")
-
-const makeActive = name => active.value = name
-
-</script>
 
 <style lang="scss">
     .category-navigation {
