@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
 
-    private array $categories = ["Hot Dishes", "Cold Dishes", "Soup", "Grill", "Appetizer", "Dessert"];
+    private array $categories = ["All", "Hot Dishes", "Cold Dishes", "Soup", "Grill", "Appetizer", "Dessert"];
 
 
     public function run(): void

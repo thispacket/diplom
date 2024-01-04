@@ -1,11 +1,11 @@
 <template>
-    <div class="home-page">
-        <div class="home-content">
-            <v-header/>
-            <menu-list/>
-        </div>
+  <div class="home-page">
+    <div class="home-content">
+      <v-header/>
+      <menu-list/>
     </div>
-    <order-sidebar/>
+  </div>
+  <order-sidebar/>
 </template>
 
 <script setup>
@@ -17,14 +17,18 @@ import VHeader from "../components/UI/layout/v-header.vue";
 </script>
 
 <style lang="scss">
-    .home-page {
-        padding: 28px;
-        width: 100%;
-        display: flex;
+.home-page {
+  width: 100%;
+  padding: 28px;
+  display: flex;
 
 
-        .sub-title {
-            margin-top: 4px;
-        }
-    }
+  .sub-title {
+    margin-top: 4px;
+  }
+
+  .home-content {
+    width: 100%;
+  }
+}
 </style>

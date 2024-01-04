@@ -9,9 +9,11 @@
     });
 
     const { removeFromPayment } = useMenuItem();
+    const path = import.meta.env.VITE_APP_IMAGE_PATH;
+
+
 
     let count = ref(1);
-    const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
     const totalPrice = ref(props.paymentItem.price);
 
     watch(count, () =>  totalPrice.value = (count.value * props.paymentItem.price).toFixed(2));
@@ -22,7 +24,7 @@
     <div class="payment-item">
         <div class="payment-item__inner">
             <div class="item">
-                <img :src="path" alt="pasta" class="payment-item__img">
+                <img :src="path + paymentItem.img_path" alt="pasta" class="payment-item__img">
 
                 <div class="payment-item__info">
                     <p class="payment-item__name">{{ paymentItem.title }}</p>

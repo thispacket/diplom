@@ -14,4 +14,11 @@ class MenuItemCategoryController extends Controller
 
         return response()->json($categories);
     }
+
+    public function show(int $id): JsonResponse
+    {
+        $category = MenuItemCategory::query()->find($id);
+
+        return response()->json($category);
+    }
 }

@@ -8,12 +8,12 @@
         menuItem: Object
     })
 
-    const path = import.meta.env.VITE_APP_IMAGE_PATH + 'pasta.png';
-
     const { changeWindowsVisibility } = useWindowVisibility();
     const { addToPayment } = useMenuItem();
     const active = ref(false);
     const color = ref("#393C49");
+
+    const path = import.meta.env.VITE_APP_IMAGE_PATH;
 
     const addDish = () => {
         addToPayment(props.menuItem);
@@ -25,7 +25,7 @@
 
 <template>
     <div class="menu-inner__item">
-        <img :src="path" alt="">
+        <img :src="path + menuItem.img_path" alt="">
 
         <div class="menu-item__text">
             <p class="item-name">{{ menuItem.title }}</p>
