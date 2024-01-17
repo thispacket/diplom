@@ -1,5 +1,5 @@
 import {onMounted, ref} from "vue";
-import {useMenuItems} from "../api/useMenuItems.js";
+import {useMenuItems} from "./menu_items.js";
 
 export const useMenuCategories = () => {
   const { getMenuItemsByCategory } = useMenuItems();
@@ -9,16 +9,19 @@ export const useMenuCategories = () => {
   const getMenuCategories = () => {
     return axios({
       method: 'GET',
-      url: '/api/menu/categories',
+      url: '/api/v1/menu/categories',
     })
-      .then(response => menuCategories.value = response.data)
+      .then(response => {
+        menuCategories.value = response.data
+        console.log(response.data)
+      })
       .catch(err => console.log(err))
   }
 
   const getMenuCategory = id => {
     return axios({
       method: 'GET',
-      url: `/api/menu/categories/${id}`,
+      url: `/api/v1/menu/categories/${id}`,
     })
       .then(response => {
         return response.data;

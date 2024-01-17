@@ -19,15 +19,9 @@
 import DropdownSelect from "../form/dropdown-select.vue";
 import MenuItem from "../item/menu-item.vue";
 import TitleText from "../text/title-text.vue";
-import {useMenuItems} from "../../../helper/api/useMenuItems.js";
-import {watch} from "vue";
+import {useMenuItems} from "../../../helper/api/menu_items.js";
 
 const {menuItems} = useMenuItems();
-
-watch(menuItems, () => {
-  console.log(menuItems.value)
-})
-
 
 </script>
 
@@ -49,7 +43,7 @@ watch(menuItems, () => {
   &__content {
     display: flex;
     flex-wrap: wrap;
-    //justify-content: space-between;
+    justify-content: space-between;
     gap: 24px;
   }
 

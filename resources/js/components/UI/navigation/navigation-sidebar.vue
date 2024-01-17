@@ -17,8 +17,10 @@
                 </router-link>
             </div>
 
-            <div class="icon-item">
+            <div class="icon-item" :class="$route.name === 'dashboard' ? 'active' : ''">
+              <router-link to="/dashboard">
                 <dashboard-icon size="28"/>
+              </router-link>
             </div>
 
             <div class="icon-item">

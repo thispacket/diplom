@@ -1,14 +1,19 @@
 <script setup>
 import {ref} from "vue";
-import {useMenuCategories} from "../../../helper/api/useMenuCategories.js";
+import {useMenuCategories} from "../../../helper/api/menu_categories.js";
+import {useMenuItems} from "../../../helper/api/menu_items.js";
 
 const {menuCategories, setCurrentCategory} = useMenuCategories();
-
+const {getMenuItems} = useMenuItems()
 const active = ref("All");
 
 const showMenuItemByCategory = category => {
   active.value = category.name;
-  setCurrentCategory(category);
+  if (category.name === "All") {
+    getMenuItems();
+  } else {
+    setCurrentCategory(category);
+  }
 }
 
 </script>
