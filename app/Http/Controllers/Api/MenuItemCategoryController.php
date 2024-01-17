@@ -8,17 +8,17 @@ use Illuminate\Http\JsonResponse;
 
 class MenuItemCategoryController extends Controller
 {
-    public function index(): JsonResponse
-    {
-        $categories = MenuItemCategory::all();
+  public function index(): JsonResponse
+  {
+    $categories = MenuItemCategory::all();
 
-        return response()->json($categories);
-    }
+    return response()->json($categories);
+  }
 
-    public function show(int $id): JsonResponse
-    {
-        $category = MenuItemCategory::query()->find($id);
+  public function show(int $id): JsonResponse
+  {
+    $category = MenuItemCategory::query()->find($id);
 
-        return response()->json($category);
-    }
+    return response()->json($category);
+  }
 }

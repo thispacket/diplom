@@ -10,6 +10,8 @@ class MenuItem extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'description', 'price', 'count', 'img_path', 'category_id'];
+
 
     public function menuItemCategory(): BelongsTo
     {

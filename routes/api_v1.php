@@ -22,7 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/menu', [MenuItemController::class, 'index']);
 Route::get('/menu/item/{id}', [MenuItemController::class, 'show']);
+Route::post('/menu/item', [MenuItemController::class, 'store']);
 Route::get('/menu/item/category/{id}', [MenuItemController::class, 'showMenuItemsByCategory']);
+
 
 
 Route::get('/menu/categories', [MenuItemCategoryController::class, 'index']);

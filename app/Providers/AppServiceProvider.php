@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\MenuItemService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+      $this->app->bind('menu_item', MenuItemService::class);
     }
 
     /**
