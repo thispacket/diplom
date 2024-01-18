@@ -1,4 +1,6 @@
 <script setup>
+  import Status from "@/components/UI/item/status.vue";
+
   const path = import.meta.env.VITE_APP_IMAGE_PATH;
 </script>
 
@@ -19,9 +21,7 @@
       </p>
     </td>
     <td class="status-column">
-      <p>
-        Completed
-      </p>
+      <status status="Preparing"/>
     </td>
   </tr>
 </template>
