@@ -1,25 +1,44 @@
 <script setup>
 
-import CoinIcon from "../../icons/coin-icon.vue";
 import ArrowUpIcon from "../../icons/arrow-up-icon.vue";
 import TitleText from "../text/title-text.vue";
-import SubtitleText from "@/components/UI/text/subtitle-text.vue";
+import SubtitleText from "../text/subtitle-text.vue";
+import {computed, ref} from "vue";
+
+const props = defineProps({
+  Icon: Object,
+  cost: String,
+  title: String,
+  percent: Number,
+  color: String
+});
+
+const percentRef = ref("")
+
+const isPositiveOrNegative = computed(() => {
+  return props.percent > 0 ? "#50D1AA" : "#FF7CA3";
+})
+
+if (props.percent > 0) percentRef.value = "+" + props.percent
+else percentRef.value = props.percent;
+
 </script>
 
 <template>
   <div class="dashboard-order-card__item">
     <div class="stats">
-      <coin-icon class="coin-icon" color="#9288E0" size="55"/>
+      <component :is="Icon" class="coin-icon" :color="color" size="55"/>
 
       <div class="stats_percent">
-        <span>+32.40%</span>
-        <arrow-up-icon class="arrow-icon" color="#50D1AA"/>
+        <span :style="{color: isPositiveOrNegative}">{{ percentRef }}%</span>
+        <arrow-up-icon v-if="props.percent > 0" class="arrow-icon arrow-icon--positive" color="#50D1AA"/>
+        <arrow-up-icon v-else class="arrow-icon arrow-icon--negative" color="#FF7CA3"/>
       </div>
     </div>
 
-    <title-text text="$10,243.00"/>
+    <title-text :text="cost"/>
 
-    <subtitle-text text="Total Revenue"/>
+    <subtitle-text :text="title"/>
   </div>
 </template>
 
@@ -49,9 +68,17 @@ import SubtitleText from "@/components/UI/text/subtitle-text.vue";
     }
 
     .arrow-icon {
-      background: rgba(136, 224, 145, .24);
       border-radius: 50%;
       padding: 4px;
+
+      &--positive {
+        background: rgba(136, 224, 145, .24);
+      }
+
+      &--negative {
+        background: rgba(255, 124, 163, .24);
+        transform: rotate(180deg);
+      }
     }
 
     &_percent {

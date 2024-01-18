@@ -5,6 +5,9 @@ import DashboardOrderCard from "../components/UI/item/dashboard-order-card.vue";
 import OrderReport from "../components/UI/layout/order-report.vue";
 import MostOrdered from "@/components/UI/layout/most-ordered.vue";
 import TypeOfOrder from "../components/UI/layout/type-of-order.vue";
+import CoinIcon from "../components/icons/coin-icon.vue";
+import BookmarkIcon from "../components/icons/bookmark-icon.vue";
+import UserIcon from "../components/icons/user-icon.vue";
 </script>
 
 <template>
@@ -19,7 +22,27 @@ import TypeOfOrder from "../components/UI/layout/type-of-order.vue";
         <div class="divider"></div>
 
         <div class="order-cards">
-          <dashboard-order-card v-for="i in 3"/>
+          <dashboard-order-card
+            title="Total Revenue"
+            cost="$10,243.00"
+            :Icon="CoinIcon"
+            :percent="+32.40"
+            color="#9288E0"
+          />
+          <dashboard-order-card
+            title="Total Dish Ordered"
+            cost="23,456"
+            :Icon="BookmarkIcon"
+            :percent="-12.40"
+            color="#FFB572"
+          />
+          <dashboard-order-card
+            title="Total Customer"
+            cost="1,234"
+            :Icon="UserIcon"
+            :percent="+2.40"
+            color="#65B0F6"
+          />
           <order-report/>
         </div>
 
