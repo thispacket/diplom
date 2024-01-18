@@ -2,15 +2,15 @@ import {ref} from "vue";
 
 
 const order = ref();
-const isConfirm = ref(true)
+const isConfirm = ref(false)
 export const useOrder = () => {
 
-  const confirm = () => {
+  const changeConfirm = () => {
     isConfirm.value = !isConfirm.value
   }
 
   return {
-    confirm,
+    changeConfirm,
     isConfirm,
     order,
   };

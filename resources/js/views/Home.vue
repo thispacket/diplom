@@ -1,5 +1,5 @@
 <template>
-  <template v-if="menuItems && menuItems.length && menuCategories && menuCategories.length">
+  <template v-if="menuItemIsNotEmpty && menuCategoryIsNotEmpty">
     <div class="home-page">
       <div class="home-content">
         <v-header/>
@@ -7,8 +7,8 @@
       </div>
     </div>
 
-    <order-sidebar v-if="menuPaymentItems && menuPaymentItems.length"/>
-    <confirmation-payment/>
+    <order-sidebar v-if="menuPaymentItemIsNotEmpty"/>
+    <confirmation-payment v-if="isConfirm"/>
   </template>
 
   <icon-loader2 v-else class="loader" color="white" size="58"/>
@@ -23,10 +23,17 @@ import {IconLoader2} from '@tabler/icons-vue';
 import {useMenuItems} from "../helper/api/menu_items.js";
 import {useMenuCategories} from "../helper/api/menu_categories.js";
 import ConfirmationPayment from "../components/UI/layout/confirmation-payment.vue";
+import {useOrder} from "../helper/api/order.js";
+import {computed} from "vue";
 
 const {menuPaymentItems} = useMenuItem();
 const {menuItems} = useMenuItems();
 const {menuCategories} = useMenuCategories();
+const {isConfirm} = useOrder();
+
+const menuItemIsNotEmpty = computed(() => menuItems.value && menuItems.value.length);
+const menuCategoryIsNotEmpty = computed(() => menuCategories.value && menuCategories.value.length);
+const menuPaymentItemIsNotEmpty = computed(() => menuPaymentItems.value && menuPaymentItems.value.length);
 
 </script>
 

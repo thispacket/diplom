@@ -3,11 +3,19 @@
 import BackIcon from "../../icons/back-icon.vue";
 import Confirmation from "./confirmation.vue";
 import Payment from "../layout/payment.vue";
+import {useOrder} from "@/helper/api/order.js";
+
+const {changeConfirm} = useOrder();
+
 </script>
 
 <template>
   <div class="confirmation-payment">
-    <back-icon class="back-icon" size="32" color="white"/>
+    <back-icon
+      @click="changeConfirm"
+      class="back-icon"
+      size="32"
+      color="white"/>
 
     <div class="confirmation-payment__content">
       <confirmation/>
@@ -31,7 +39,7 @@ import Payment from "../layout/payment.vue";
   .back-icon {
     cursor: pointer;
   }
-  
+
   &__content {
     display: flex;
   }
