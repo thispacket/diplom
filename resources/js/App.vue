@@ -8,19 +8,21 @@
 import NavigationSidebar from "../js/components/UI/navigation/navigation-sidebar.vue";
 import Blur from "./components/UI/blur.vue";
 import {useOrder} from "./helper/api/order.js";
+import {watch} from "vue";
 
 const {isConfirm} = useOrder();
 
 let html = document.querySelector('html')
-html.style.overflow = isConfirm.value ? 'hidden' : 'auto';
+
+watch(isConfirm, () => {
+  html.style.overflow = isConfirm.value ? 'hidden' : 'auto'
+})
 
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&family=Rubik&family=Source+Code+Pro:wght@300&display=swap');
 
-body {
-}
 html::-webkit-scrollbar {
   width: 12px;
   background: var(--primary-color);

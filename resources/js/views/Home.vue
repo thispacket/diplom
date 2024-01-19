@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <order-sidebar v-if="menuPaymentItemIsNotEmpty"/>
+    <order-sidebar v-if="menuPaymentItemIsNotEmpty && !isConfirm"/>
     <confirmation-payment v-if="isConfirm"/>
   </template>
 

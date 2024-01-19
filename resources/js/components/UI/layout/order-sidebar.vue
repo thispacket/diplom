@@ -5,7 +5,7 @@ import FormButton from "../form/form-button.vue";
 import PaymentItemPanel from "../layout/payment-item-panel.vue";
 import {useOrder} from "@/helper/api/order.js";
 
-const {changeConfirm} = useOrder();
+const {isConfirm} = useOrder();
 
 const textsButton = ref([
   "Dine In",
@@ -55,7 +55,7 @@ const makeActive = text => activeButton.value = text;
           <p class="sub-total__value">$ 21.03</p>
         </div>
 
-        <form-button @click="changeConfirm" text="Continue to Payment"/>
+        <form-button @click="isConfirm = true" text="Continue to Payment"/>
       </div>
     </div>
 

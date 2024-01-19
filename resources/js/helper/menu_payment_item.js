@@ -5,7 +5,6 @@ export const useMenuItem = () => {
   const addToPayment = item => {
     if (menuPaymentItems.value.includes(item)) return;
     menuPaymentItems.value.push(item);
-    console.log(menuPaymentItems.value.length);
   }
 
   const removeFromPayment = item => {

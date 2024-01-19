@@ -3,7 +3,7 @@
 import BackIcon from "../../icons/back-icon.vue";
 import Confirmation from "./confirmation.vue";
 import Payment from "../layout/payment.vue";
-import {useOrder} from "@/helper/api/order.js";
+import {useOrder} from "../../../helper/api/order.js";
 
 const {changeConfirm} = useOrder();
 
@@ -29,6 +29,7 @@ const {changeConfirm} = useOrder();
   position: absolute;
   width: 60%;
   right: 0;
+  bottom: 0;
   top: 0;
   height: 100vh;
   z-index: 5;
@@ -41,7 +42,10 @@ const {changeConfirm} = useOrder();
   }
 
   &__content {
+    position: relative;
     display: flex;
   }
 }
+
+
 </style>
