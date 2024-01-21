@@ -66,7 +66,7 @@ const makeActive = text => activeButton.value = text;
 <style lang="scss">
 .order-sidebar {
   padding: 24px;
-  width: 1000px;
+  width: 1340px !important;
   background: var(--base-dark-one);
   height: 100vh;
   position: sticky;
