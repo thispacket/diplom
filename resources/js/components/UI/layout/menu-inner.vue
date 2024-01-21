@@ -41,12 +41,13 @@ const {menuItems} = useMenuItems();
   }
 
   &__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(340px - 24px), 1fr));
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 24px;
+    grid-auto-flow: row dense;
+    column-gap: 24px;
+    row-gap: 24px;
   }
-
 
   &__item {
     background-color: var(--base-dark-one);
