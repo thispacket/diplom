@@ -25,4 +25,8 @@ Route::get('/discount', function () {
   return view('index');
 });
 
+Route::get('/setting', function () {
+  return view('index');
+});
+
 

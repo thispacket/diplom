@@ -32,7 +32,9 @@
             </div>
 
             <div class="icon-item">
+              <router-link :to="{name: 'setting'}">
                 <setting-icon size="28"/>
+              </router-link>
             </div>
 
             <div class="icon-item logout">
@@ -44,6 +46,15 @@
 
 <script setup>
 import { computed, ref } from "vue";
+import router from "@/router/index.js";
+import SettingIcon from "@/components/icons/setting-icon.vue";
+import NotifivationIcon from "@/components/icons/notifivation-icon.vue";
+import MessageIcon from "@/components/icons/message-icon.vue";
+import DashboardIcon from "@/components/icons/dashboard-icon.vue";
+import DiscountIcon from "@/components/icons/discount-icon.vue";
+import HomeIcon from "@/components/icons/home-icon.vue";
+import RestaurantIcon from "@/components/icons/restaurant-icon.vue";
+import LogoutIcon from "@/components/icons/logout-icon.vue";
 
 const color = ref('#fff')
 // let colorChange = computed(() => {
