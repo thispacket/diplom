@@ -22,19 +22,13 @@ export const useMenuItems = () => {
       })
       .catch(err => console.log(err));
   }
-  const sendMenuItem = (menuItem) => {
+  const sendMenuItem = menuItem => {
     return axios({
       method: 'POST',
       url: 'api/v1/menu/item',
-      data: {
-        title: menuItem.title,
-        description: menuItem.description,
-        price: menuItem.price,
-        count: menuItem.count,
-        img_path: menuItem.img_path,
-        category_id: menuItem.category_id
-      }
-    }).catch(err => console.log(err));
+      data: menuItem,
+    }).then(()=> getMenuItems())
+      .catch(err => console.log(err));
   }
   const deleteMenuItem = id => {
     return axios({
@@ -45,6 +39,13 @@ export const useMenuItems = () => {
         return response.data;
       })
       .catch(err => console.log(err));
+  }
+  const updateMenuItem = menuItem => {
+    return axios({
+      method: 'PUT',
+      url: `api/v1/menu/item/${menuItem.id}`,
+      data: menuItem
+    }).catch(err => console.log(err));
   }
   const getMenuItemsByCategory = categoryId => {
     return axios({
@@ -69,6 +70,7 @@ export const useMenuItems = () => {
     getMenuItem,
     sendMenuItem,
     deleteMenuItem,
-    getMenuItemsByCategory
+    getMenuItemsByCategory,
+    updateMenuItem
   }
 }
