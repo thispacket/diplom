@@ -33,6 +33,7 @@ switch (props.status) {
 
 <style lang="scss">
   .status {
+    border: 1px solid v-bind(color);
     cursor: pointer;
     font-weight: 500;
     font-size: 16px !important;
