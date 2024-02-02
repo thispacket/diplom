@@ -3,6 +3,10 @@ import {ref} from "vue";
 
 const order = ref();
 const isConfirm = ref(false)
+
+const orderFormData = ref({
+
+});
 export const useOrder = () => {
 
   const getOrders = () => {

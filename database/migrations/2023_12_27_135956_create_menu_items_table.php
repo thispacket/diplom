@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text("description")->nullable();
             $table->unsignedInteger("price");
             $table->unsignedInteger("count");
+            $table->unsignedInteger("weight")->nullable();
+            $table->unsignedInteger("rating")->nullable();
             $table->string("img_path", 255);
             $table->unsignedBigInteger("category_id")->default(1);
             $table->timestamps();

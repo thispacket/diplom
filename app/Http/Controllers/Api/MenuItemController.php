@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Facades\MenuItem as MenuList;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MenuItem\StoreRequest;
+use App\Http\Requests\MenuItem\UpdateRequest;
 use App\Http\Resources\MenuItemCollection;
 use App\Http\Resources\MenuItemResource;
 use App\Models\MenuItem;
-use App\Services\MenuItemService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 
@@ -18,19 +19,23 @@ class MenuItemController extends Controller
   {
     $menuItems = MenuItem::all();
 
-    $cache = Cache::remember('menu_items', 1, function () use ($menuItems) {
-      return $menuItems;
-    });
-
     return response()->json([
       'status' => 'success',
-      'data' => new MenuItemCollection($cache)
+      'data' => new MenuItemCollection($menuItems)
     ]);
   }
 
   public function show(int $id): JsonResponse
   {
     $menuItem = MenuItem::query()->find($id);
+
+    if (!$menuItem) {
+      return response()->json([
+        'status' => 'error',
+        'message' => 'Menu item does not exist!'
+      ], 404);
+    }
+
     return response()->json([
       'status' => 'success',
       'data' => new MenuItemResource($menuItem)
@@ -39,7 +44,17 @@ class MenuItemController extends Controller
 
   public function store(StoreRequest $request): JsonResponse
   {
-    $menuItem = \App\Facades\MenuItem::storeMenuItem($request->validated());
+    $menuItem = MenuList::storeMenuItem($request->validated());
+
+    return response()->json([
+      'status' => 'success',
+      'data' => new MenuItemResource($menuItem)
+    ]);
+  }
+
+  public function update(UpdateRequest $request, int $id): JsonResponse
+  {
+    $menuItem = MenuList::updateMenuItem($request->validated(), $id);
 
     return response()->json([
       'status' => 'success',

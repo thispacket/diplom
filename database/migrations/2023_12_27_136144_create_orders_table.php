@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_number')->unique();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger("menu_item_id");
             $table->unsignedBigInteger('payment_method_id');
+            $table->unsignedBigInteger("order_type_id");
             $table->unsignedBigInteger('status_id');
             $table->unsignedInteger("count");
             $table->unsignedInteger("total_price");
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
             $table->foreign('status_id')->references('id')->on('order_statuses')->onDelete('cascade');
+            $table->foreign('order_type_id')->references('id')->on('order_types')->onDelete('cascade');
         });
     }
 

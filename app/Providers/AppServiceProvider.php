@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\MenuItemCategoryService;
 use App\Services\MenuItemService;
 use Illuminate\Support\ServiceProvider;
 

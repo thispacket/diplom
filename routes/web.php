@@ -29,4 +29,8 @@ Route::get('/setting', function () {
   return view('index');
 });
 
+Route::get('/setting/{any}', function () {
+  return view('index');
+});
+
 
