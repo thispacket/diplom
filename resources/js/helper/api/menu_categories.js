@@ -12,7 +12,7 @@ export const useMenuCategories = () => {
       url: '/api/v1/menu/categories',
     })
       .then(response => {
-        menuCategories.value = response.data
+        menuCategories.value = response.data.data
         console.log(response.data)
       })
       .catch(err => console.log(err))

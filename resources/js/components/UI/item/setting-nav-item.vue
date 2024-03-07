@@ -48,13 +48,7 @@ const props = defineProps({
     gap: 16px;
     padding: 30px 24px;
 
-    &:first-child {
-      border-radius: 8px 8px 0 0;
-    }
 
-    &:last-child {
-      border-radius: 0 0 8px 8px;
-    }
 
     &-title {
       color: white;

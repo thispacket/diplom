@@ -1,11 +1,23 @@
 <script setup>
 
+
+import useVuelidate from "@vuelidate/core";
+import {ref, watch} from "vue";
+
 const props = defineProps({
   id: String,
   label: String,
   placeholder: String,
   type: String,
-  value: String
+  value: String,
+  rules: Object
+});
+
+let content = ref("");
+
+const v$ = useVuelidate(props.rules, content, {
+  $autoDirty: true,
+  $lazy: true
 });
 
 </script>
@@ -13,7 +25,14 @@ const props = defineProps({
 <template>
   <div class="form-field">
     <label :for="id" class="form-field__label">{{ label }}</label>
-    <input :id="id" class="form-field__input" :placeholder="placeholder" :type="type" :value="value">
+    <input
+      v-model="content"
+      :id="id"
+      class="form-field__input"
+      @input="v$.$touch"
+      :class="v$.$error ? 'form-field__error' : ''"
+      :placeholder="placeholder"
+      :type="type">
   </div>
 </template>
 
@@ -36,6 +55,10 @@ const props = defineProps({
     padding: 14px;
     font-size: 18px;
     color: #E0E6E9;
+  }
+
+  &__error {
+    border-color: red;
   }
 
   &__input:focus {

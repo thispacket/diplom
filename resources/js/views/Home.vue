@@ -11,7 +11,11 @@
     <confirmation-payment v-if="isConfirm"/>
   </template>
 
-  <icon-loader2 v-else class="loader" color="white" size="58"/>
+  <loader
+    v-else
+    color="white"
+    size="58"/>
+
 </template>
 
 <script setup>
@@ -25,6 +29,7 @@ import {useMenuCategories} from "../helper/api/menu_categories.js";
 import ConfirmationPayment from "../components/UI/layout/confirmation-payment.vue";
 import {useOrder} from "../helper/api/order.js";
 import {computed} from "vue";
+import Loader from "@/components/svg/loader.vue";
 
 const {menuPaymentItems} = useMenuItem();
 const {menuItems} = useMenuItems();
@@ -51,24 +56,6 @@ const menuPaymentItemIsNotEmpty = computed(() => menuPaymentItems.value && menuP
 
   .home-content {
     width: 100%;
-  }
-}
-
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.loader {
-  animation: rotate 1s linear infinite;
-}
-
-@keyframes rotate {
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

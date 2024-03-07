@@ -19,6 +19,9 @@ class MenuItemController extends Controller
   {
     $menuItems = MenuItem::all();
 
+    
+
+
     return response()->json([
       'status' => 'success',
       'data' => new MenuItemCollection($menuItems)

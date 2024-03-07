@@ -17,9 +17,41 @@ const routes = [
     component: () => import('../views/Dashboard.vue')
   },
   {
-    path: "/setting",
+    path: "/setting/:page?",
     name: "setting",
-    component: () => import('../views/Setting.vue')
+    component: () => import('../views/Setting.vue'),
+    children: [
+      {
+        path: "appearance",
+        name: "appearance",
+        component: () => import('../views/setting/Appearance.vue')
+      },
+      {
+        path: "your-restaurant",
+        name: "your-restaurant",
+        component: () => import('../views/setting/YourRestaurant.vue')
+      },
+      {
+        path: "products-management",
+        name: "products-management",
+        component: () => import('../views/setting/ProductsManagement.vue')
+      },
+      {
+        path: "notifications",
+        name: "notifications",
+        component: () => import('../views/setting/Notifications.vue')
+      },
+      {
+        path: "security",
+        name: "security",
+        component: () => import('../views/setting/Security.vue')
+      },
+      {
+        path: "about",
+        name: "about-us",
+        component: () => import('../views/setting/About.vue')
+      }
+    ]
   }
 ]
 

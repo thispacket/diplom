@@ -10,9 +10,29 @@ import {ref} from "vue";
 import FormFieldInput from "@/components/UI/form/form-field-input.vue";
 import DropdownSelect from "../form/dropdown-select.vue";
 import {useOrder} from "@/helper/api/order.js";
+import {maxLength, required} from "@vuelidate/validators";
+
 
 const selected = ref('Credit Card')
 const {changeConfirm} = useOrder();
+
+const rules = {
+  cardholder_name: {
+    required,
+  },
+  card_number: {
+    required,
+    maxLength: maxLength(16)
+  },
+  expiration_date: {
+    required,
+  },
+  cvv: {
+    required,
+    maxLength: maxLength(3)
+  }
+}
+
 
 const paymentMethods = [
   {
@@ -28,6 +48,7 @@ const paymentMethods = [
     icon: WalletIcon,
   }
 ]
+
 const selectMethod = title => {
   selected.value = title
 }
@@ -60,12 +81,14 @@ const selectMethod = title => {
         label="Cardholder Name"
         placeholder="Enter name..."
         type="text"
+        :rules="rules.cardholder_name"
       />
       <form-field-input
         id="card_number"
         label="Card Number"
         placeholder="Enter number..."
         type="text"
+        :rules="rules.card_number"
       />
       <div class="flex">
         <form-field-input
@@ -87,7 +110,7 @@ const selectMethod = title => {
           <p class="form-field__label">
             Order Type
           </p>
-          <dropdown-select />
+          <dropdown-select/>
         </div>
 
         <form-field-input
@@ -99,7 +122,7 @@ const selectMethod = title => {
 
     <div class="payment__buttons flex">
       <button @click="changeConfirm" class="payment__btn">Cancel</button>
-      <button class="payment__btn">Confirm Payment</button>
+      <button @click="submit" class="payment__btn">Confirm Payment</button>
     </div>
   </div>
 </template>
@@ -113,7 +136,6 @@ const selectMethod = title => {
     margin-top: 12px;
   }
 }
-
 
 
 .payment {

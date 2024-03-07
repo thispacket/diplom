@@ -22,7 +22,7 @@ const path = import.meta.env.VITE_APP_IMAGE_PATH;
       </div>
       <p class="order-table__content-menu">Spicy seasoned seafood noodles </p>
       <p class="order-table__content-total-payment">$125</p>
-      <status status="Completed"/>
+      <status status="Preparing"/>
     </div>
   </div>
 </template>
@@ -36,7 +36,6 @@ const path = import.meta.env.VITE_APP_IMAGE_PATH;
   &__header {
     width: 100%;
     display: grid;
-    //grid-template-columns: repeat(4, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(calc(100% / 4 - 24px), 1fr));
 
     p {
@@ -63,7 +62,7 @@ const path = import.meta.env.VITE_APP_IMAGE_PATH;
     align-items: center;
 
     p {
-      font-size: 18px !important;
+      font-size: 18px ;
     }
 
     &-customer-name {

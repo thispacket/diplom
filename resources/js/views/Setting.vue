@@ -2,6 +2,12 @@
 
 import TitleText from "@/components/UI/text/title-text.vue";
 import SettingNavigation from "@/components/UI/navigation/setting-navigation.vue";
+import {onMounted} from "vue";
+import router from "../router/index.js";
+
+onMounted(() => {
+  router.push( { name: 'products-management' } );
+});
 </script>
 
 <template>
@@ -22,8 +28,12 @@ import SettingNavigation from "@/components/UI/navigation/setting-navigation.vue
     width: 100%;
 
     &__inner {
+      position: relative;
       display: flex;
       gap: 24px;
+      width: 100%;
+      margin-top: 24px;
+      height: calc(100% - 64px);
     }
   }
 </style>

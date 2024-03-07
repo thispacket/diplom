@@ -41,17 +41,34 @@ const {menuItems} = useMenuItems();
   }
 
   &__content {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(calc(340px - 24px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: minmax(300px, auto);
     flex-wrap: wrap;
     grid-auto-flow: row dense;
     column-gap: 24px;
     row-gap: 24px;
+
+    @media screen and (max-width: 790px)  {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-auto-rows: minmax(300px, auto);
+    }
+
+    @media screen and (max-width: 700px) {
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-auto-rows: minmax(300px, auto);
+      justify-items: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
   }
 
   &__item {
     background-color: var(--base-dark-one);
-    width: calc(340px - 24px);
     border-radius: 16px;
     padding: 24px;
     margin-top: calc(58px * 2);
@@ -84,6 +101,15 @@ const {menuItems} = useMenuItems();
     .item-price, .item-count {
       margin-top: 24px;
     }
+
+    @media screen and (max-width: 700px) {
+      width: 350px;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 300px;
+    }
+
   }
 
   &__item::first-line {

@@ -4,8 +4,28 @@ import TitleText from "@/components/UI/text/title-text.vue";
 import FilterButton from "@/components/UI/layout/filter-button.vue";
 import DropdownIcon from "@/components/icons/dropdown-icon.vue";
 import DineIn from "../../svg/dine-in.vue";
+import {ref} from "vue";
 
 const path = import.meta.env.VITE_APP_IMAGE_PATH;
+
+
+const types = ref({
+  dine_in: {
+    name: 'Dine In',
+    color: '#65B0F6',
+    value: 200
+  },
+  to_go: {
+    name: 'To Go',
+    color: '#FFB572',
+    value: 100
+  },
+  delivery: {
+    name: 'Delivery',
+    color: '#FF7CA3',
+    value: 50
+  }
+})
 </script>
 
 <template>
@@ -23,7 +43,7 @@ const path = import.meta.env.VITE_APP_IMAGE_PATH;
     <div class="most-type-of-order__content">
       <div class="progress-bar__inner">
         <dine-in
-          :progress="50"
+          :progress="100"
           :radius="110"
           color="#65B0F6"
           opacity="15%"
@@ -47,11 +67,11 @@ const path = import.meta.env.VITE_APP_IMAGE_PATH;
       </div>
 
       <div class="content_map">
-        <div class="content_map__item" v-for="i in 3">
-          <div class="content_map__point"></div>
+        <div class="content_map__item" v-for="({name, color}, index) in types">
+          <div class="content_map__point" :style="{background: color}"></div>
           <div class="content_map__item__info">
-            <p class="name">Dine In</p>
-            <p class="value">200 customers</p>
+            <p class="name">{{ name }}</p>
+            <p class="value">{{ types[index].value }} customers</p>
           </div>
         </div>
 
